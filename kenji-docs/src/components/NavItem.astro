@@ -1,0 +1,13 @@
+---
+interface Props {
+  path: string;
+  name: string;
+}
+const { path, name } = Astro.props;
+---
+
+<a
+  href={path}
+  class="nav-item hidden first:mt-4 mt-2 text-lg text-slate-600 lg:block lg:mt-0 lg:first:mt-0 lg:mx-4 lg:text-lg hover:text-slate-900"
+  >{name}</a
+>

@@ -1,25 +1,42 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+import NavItem from "./NavItem.astro";
+import { Icon } from "astro-icon";
+
+const navItems = [
+  { name: "About", path: "/about/" },
+  { name: "Blog", path: "/blog/" },
+  { name: "Projects", path: "/projects/" },
+  { name: "Contact", path: "/contact/" },
+];
 ---
 
-<header>
-	<h2>
-		{SITE_TITLE}
-	</h2>
-	<nav>
-		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/blog">Blog</HeaderLink>
-		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">Twitter</HeaderLink>
-		<HeaderLink href="https://github.com/withastro/astro" target="_blank">GitHub</HeaderLink>
-	</nav>
-</header>
-<style>
-	header {
-		margin: 0em 0 2em;
-	}
-	h2 {
-		margin: 0.5em 0;
-	}
-</style>
+<nav
+  class="flex flex-col lg:flex-row justify-between items-center my-5 lg:relative"
+>
+  <div class="flex w-full lg:w-auto items-center justify-between z-10">
+    <a href="/" class="text-xl"
+      ><span class="font-bold text-slate-800">Kenji</span><span
+        class="text-slate-500">Docs</span
+      >
+    </a>
+    <button class="h-6 w-5 block lg:hidden" id="menu">
+      <Icon name="ic:baseline-menu" class="nav-btn" />
+      <Icon name="ic:round-close" class="hidden nav-btn" />
+    </button>
+  </div>
+
+  <div
+    class="w-full flex flex-col justify-start items-start lg:flex-row lg:absolute lg:justify-center"
+  >
+    {navItems.map((item) => <NavItem name={item.name} path={item.path} />)}
+  </div>
+</nav>
+
+<script>
+  let menu = document.querySelector("#menu");
+  menu?.addEventListener("click", () => {
+    document.querySelectorAll(".nav-item, .nav-btn").forEach((item) => {
+      item.classList.toggle("hidden");
+    });
+  });
+</script>

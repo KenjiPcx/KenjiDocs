@@ -1,13 +1,26 @@
 ---
-const today = new Date();
+import Social from "../components/Social.astro";
+import { Icon } from "astro-icon";
 ---
 
 <footer>
-	&copy; {today.getFullYear()} YOUR NAME HERE. All rights reserved.
+  <div class="w-fit mx-auto my-5">
+    <Social platform="twitter" username="@KenjiPhang">
+      <Icon name="mdi:twitter" size="24" />
+    </Social>
+
+    <Social platform="github" username="KenjiPcx">
+      <Icon name="mdi:github" size="24" />
+    </Social>
+
+    <Social platform="youtube" username="Kensomnia">
+      <Icon name="mdi:youtube" size="24" />
+    </Social>
+  </div>
 </footer>
+
 <style>
-	footer {
-		padding: 25px;
-		text-align: center;
-	}
+  svg {
+    display: inline;
+  }
 </style>
