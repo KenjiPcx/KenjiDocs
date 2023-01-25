@@ -3,18 +3,25 @@ import Social from "../components/Social.astro";
 import { Icon } from "astro-icon";
 ---
 
-<footer>
-  <div class="w-fit mx-auto my-5">
+<footer class="flex flex-col justify-between items-center my-5 md:flex-row">
+  <div class="flex items-center font-semibold">
+    Kenji Phang | {new Date().getFullYear()} ©
+  </div>
+  <div class="w-fit mt-1 md:mt-0">
     <Social platform="twitter" username="@KenjiPhang">
-      <Icon name="mdi:twitter" size="24" />
+      <Icon name="mdi:twitter" size="32" />
     </Social>
 
     <Social platform="github" username="KenjiPcx">
-      <Icon name="mdi:github" size="24" />
+      <Icon name="mdi:github" size="32" />
     </Social>
 
     <Social platform="youtube" username="Kensomnia">
-      <Icon name="mdi:youtube" size="24" />
+      <Icon name="mdi:youtube" size="32" />
+    </Social>
+
+    <Social platform="linkedin" username="in/KenjiPhang">
+      <Icon name="mdi:linkedin" size="32" />
     </Social>
   </div>
 </footer>
