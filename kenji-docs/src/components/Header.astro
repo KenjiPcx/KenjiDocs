@@ -21,8 +21,8 @@ const navItems = [
       </a>
 
       <button class="w-6" id="light-dark-mode">
-        <Icon name="ic:round-light-mode" class="theme-btn" />
-        <Icon name="ic:round-dark-mode" class="hidden theme-btn" />
+        <Icon name="ic:round-light-mode" id="sun" class="hidden" />
+        <Icon name="ic:round-dark-mode" id="moon" class="hidden" />
       </button>
     </div>
 
@@ -47,11 +47,55 @@ const navItems = [
     });
   });
 
+  let prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+  let darkMode = localStorage.getItem("darkMode");
+  const sun = document.querySelector("#sun");
+  const moon = document.querySelector("#moon");
+
+  let turnOnDarkMode = () => {
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("darkMode", "on");
+    sun?.classList.add("hidden");
+    moon?.classList.remove("hidden");
+  };
+
+  let turnOffDarkMode = () => {
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("darkMode", "off");
+    sun?.classList.remove("hidden");
+    moon?.classList.add("hidden");
+  };
+
+  // Initial setup
+  if (darkMode === null) {
+    if (prefersDark.matches) {
+      turnOnDarkMode();
+    } else {
+      turnOffDarkMode();
+    }
+  } else {
+    if (darkMode === "on") {
+      turnOnDarkMode();
+    } else {
+      turnOffDarkMode();
+    }
+  }
+
+  prefersDark.addEventListener("change", (e) => {
+    if (e.matches) {
+      turnOnDarkMode();
+    } else {
+      turnOffDarkMode();
+    }
+  });
+
   let themeBtn = document.querySelector("#light-dark-mode");
   themeBtn?.addEventListener("click", () => {
-    document.querySelectorAll(".theme-btn").forEach((item) => {
-      item.classList.toggle("hidden");
-    });
-    document.documentElement.classList.toggle("dark");
+    darkMode = localStorage.getItem("darkMode");
+    if (darkMode === "on") {
+      turnOffDarkMode();
+    } else {
+      turnOnDarkMode();
+    }
   });
 </script>

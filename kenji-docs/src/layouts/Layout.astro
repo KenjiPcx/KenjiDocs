@@ -27,27 +27,3 @@ const { title } = Astro.props;
     </div>
   </body>
 </html>
-
-<script>
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-  const darkMode = localStorage.getItem('darkMode');
-  const html = document.querySelector('html');
-
-  if (darkMode === 'on') {
-    html?.classList.add('dark');
-  } else if (darkMode === 'off') {
-    html?.classList.remove('dark');
-  } else if (prefersDark.matches) {
-    html?.classList.add('dark');
-  }
-
-  prefersDark.addEventListener('change', (e) => {
-    if (e.matches) {
-      html?.classList.add('dark');
-      localStorage.setItem('darkMode', 'on');
-    } else {
-      html?.classList.remove('dark');
-      localStorage.setItem('darkMode', 'off');
-    }
-  });
-</script>

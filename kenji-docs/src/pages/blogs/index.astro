@@ -23,7 +23,7 @@ let title = "All Blogs";
     description="Read about my opinions and experiences"
   />
 
-  <ul class="grid gap-16 max-w-4xl mx-auto mt-16">
+  <ul class="grid gap-16 max-w-4xl mx-auto">
     {
       posts.map((post, index) => {
         const { category, title, author, excerpt, publishDate, image } =
@@ -33,7 +33,7 @@ let title = "All Blogs";
         return (
           <li>
             <a href={`/blogs/${slug}`}>
-              <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">
+              <div class="grid md:grid-cols-2 gap-4 md:gap-8 items-center hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md hover:shadow-md">
                 <Picture
                   src={image.src}
                   alt={image.alt}
@@ -41,7 +41,7 @@ let title = "All Blogs";
                   sizes="(max-width: 800px) 100vw, 800px"
                   aspectRatio="16:9"
                   loading={index === 0 ? "eager" : "lazy"}
-                  class="w-full rounded-md aspect-video"
+                  class="w-full rounded-xl aspect-video p-2"
                   background={"gray"}
                 />
                 <div class="p-4">

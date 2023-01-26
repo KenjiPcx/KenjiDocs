@@ -1,9 +1,31 @@
 ---
+import { getCollection, CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-let title = "Tags";
+import SectionHead from "../../components/SectionHead.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.isDraft);
+  const uniqueTags = [...new Set(posts.map((post) => post.data.tags).flat())];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = posts.filter((post) => post.data.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+interface Props {
+  posts: CollectionEntry<"blog">[];
+}
+
+const { posts } = Astro.props as Props;
+const { tag } = Astro.params as { tag: string };
 ---
 
-<Layout title={title}>
+<Layout title={tag}>
+  <SectionHead title={"Blogs"} description={`Blogs tagged with ${tag}`} />
   <h1>About</h1>
   <p>Learn more about Astro!</p>
 </Layout>

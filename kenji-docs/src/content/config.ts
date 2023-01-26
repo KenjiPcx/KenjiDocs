@@ -11,7 +11,7 @@ const blog = defineCollection({
       src: z.string(),
       alt: z.string(),
     }),
-    category: z.enum(["Technology", "Life", "Tutorial"]),
+    category: z.enum(["Technology", "Life Updates", "Tutorial", "Career"]),
     publishDate: z.string().transform((str) => new Date(str)),
   }),
 });

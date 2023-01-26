@@ -1,9 +1,20 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import SectionHead from "../../components/SectionHead.astro";
+import { Picture } from "@astrojs/image/components";
+import comingSoon from "../../../public/assets/coming-soon.gif";
+
 let title = "Projects";
 ---
 
 <Layout title={title}>
-  <h1>About</h1>
-  <p>Learn more about Astro!</p>
+  <SectionHead title="Projects" description="Will be added in the future" />
+
+  <Picture
+    src={comingSoon}
+    widths={[200, 400]}
+    sizes="(max-width: 400px) 100vw, 400px"
+    formats={["webp", "avif", "jpeg"]}
+    alt="Coming soon gif"
+  />
 </Layout>

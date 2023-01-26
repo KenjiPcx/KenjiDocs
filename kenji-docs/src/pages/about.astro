@@ -1,9 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SectionHead from "../components/SectionHead.astro";
 let title = "About";
 ---
 
 <Layout title={title}>
-  <h1>About</h1>
-  <p>Learn more about Astro!</p>
+  <SectionHead
+    title="About Me"
+    description="A little bit about who am I and what I do"
+  />
 </Layout>
