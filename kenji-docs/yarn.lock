@@ -861,7 +861,7 @@ astro-icon@^0.8.0:
     resolve-pkg "^2.0.0"
     svgo "^2.8.0"
 
-astro@^2.0.0:
+astro@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/astro/-/astro-2.0.1.tgz#7404ef119db41cdcd1b9e6094b4f87ef060cb6a3"
   integrity sha512-EXq1lks+ylmArhtUs99PQelK0bQ3VS+698OO9UYkjG08Bd02ficqihsRGBnhEor7U9989hZb+1p4y0rNpgKH8g==
