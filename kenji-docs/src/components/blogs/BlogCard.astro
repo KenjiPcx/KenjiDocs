@@ -14,38 +14,40 @@ const slug = blog.slug;
 ---
 
 <li>
-  <a href={`/blogs/${slug}`}>
-    <div
-      class="grid md:grid-cols-2 gap-4 md:gap-x-10 md:gap-y-8 p-2 items-center hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md hover:shadow-md"
-    >
-      <Picture
-        src={image.src}
-        alt={image.alt}
-        widths={[200, 400, 800]}
-        sizes="(max-width: 800px) 100vw, 800px"
-        aspectRatio="16:9"
-        loading={lazyLoad ? "lazy" : "eager"}
-        class="w-full rounded-xl aspect-video"
-        background={"gray"}
-      />
-      <div class="p-3">
-        <span
-          class="text-blue-400 uppercase tracking-wider text-sm font-medium"
-        >
-          {category}
-        </span>
+  <div
+    class="grid md:grid-cols-2 gap-4 md:gap-x-10 md:gap-y-8 p-2 items-center rounded-md"
+  >
+    <div class="overflow-hidden rounded-xl">
+      <a href={`/blogs/${slug}`}>
+        <Picture
+          src={image.src}
+          alt={image.alt}
+          widths={[200, 400, 800]}
+          sizes="(max-width: 800px) 100vw, 800px"
+          aspectRatio="16:9"
+          loading={lazyLoad ? "lazy" : "eager"}
+          class="w-full aspect-video hover:scale-105 ease-in duration-200"
+          background={"gray"}
+        />
+      </a>
+    </div>
+    <div class="p-3">
+      <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+        {category}
+      </span>
+      <a href={`/blogs/${slug}`} class="hover:underline">
         <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1">
           {title}
         </h2>
-        <p>{excerpt}</p>
-        <div class="flex gap-2 mt-3 text-gray-400">
-          <span>{author}</span>
-          <span>•</span>
-          <time datetime={publishDate.toDateString()}>
-            {formatDate(publishDate)}
-          </time>
-        </div>
+      </a>
+      <p>{excerpt}</p>
+      <div class="flex gap-2 mt-3 text-gray-400">
+        <span>{author}</span>
+        <span>•</span>
+        <time datetime={publishDate.toDateString()}>
+          {formatDate(publishDate)}
+        </time>
       </div>
     </div>
-  </a>
+  </div>
 </li>
