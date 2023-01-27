@@ -5,8 +5,7 @@ excerpt: "I'm starting a blog, here is what you can expect"
 category: "Life Updates"
 author: Kenji Phang
 tags: ["post"]
-image:
-  { src: "../../public/assets/init-kenjidocs.png", alt: "Kenji + Docs = heart" }
+image: { src: "/assets/init-kenjidocs.png", alt: "Kenji + Docs = heart" }
 publishDate: "Jan 26, 2023"
 ---
 
@@ -39,5 +38,3 @@ I'll basically just be writing a blogpost whenever I finish a project to share a
 ### My thoughts on technology
 
 I like keeping up with tech and I want to share my thoughts and reaction to them. I talk about Microsoft technologies, blockchain, AI, cloud 😄
-
-

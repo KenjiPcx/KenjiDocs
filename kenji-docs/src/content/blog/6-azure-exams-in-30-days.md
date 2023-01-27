@@ -5,7 +5,7 @@ excerpt: "I went through 6 Azure fundamental exams, was it worth it?"
 category: "Career"
 author: Kenji Phang
 tags: ["Microsoft", "Azure", "Cloud"]
-image: { src: "../../public/assets/azure-exams.jpeg", alt: "test" }
+image: { src: "/assets/azure-exams.jpeg", alt: "test" }
 publishDate: "Sept 4 2022"
 ---
 

@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BlogCard from "./BlogCard.astro";
+
+interface Props {
+  blogs: CollectionEntry<"blog">[];
+}
+
+const { blogs }: Props = Astro.props;
+---
+
+<ul class="grid gap-16 max-w-4xl mx-auto">
+  {
+    blogs.map((blog, index) => {
+      return <BlogCard blog={blog} lazyLoad={index !== 0} />;
+    })
+  }
+</ul>

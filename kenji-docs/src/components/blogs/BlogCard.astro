@@ -1,0 +1,51 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Picture } from "@astrojs/image/components";
+import { formatDate } from "../../utils/helpers";
+
+interface Props {
+  blog: CollectionEntry<"blog">;
+  lazyLoad: boolean;
+}
+
+const { blog, lazyLoad }: Props = Astro.props;
+const { title, author, excerpt, image, category, publishDate } = blog.data;
+const slug = blog.slug;
+---
+
+<li>
+  <a href={`/blogs/${slug}`}>
+    <div
+      class="grid md:grid-cols-2 gap-4 md:gap-x-10 md:gap-y-8 p-2 items-center hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md hover:shadow-md"
+    >
+      <Picture
+        src={image.src}
+        alt={image.alt}
+        widths={[200, 400, 800]}
+        sizes="(max-width: 800px) 100vw, 800px"
+        aspectRatio="16:9"
+        loading={lazyLoad ? "lazy" : "eager"}
+        class="w-full rounded-xl aspect-video"
+        background={"gray"}
+      />
+      <div class="p-3">
+        <span
+          class="text-blue-400 uppercase tracking-wider text-sm font-medium"
+        >
+          {category}
+        </span>
+        <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1">
+          {title}
+        </h2>
+        <p>{excerpt}</p>
+        <div class="flex gap-2 mt-3 text-gray-400">
+          <span>{author}</span>
+          <span>•</span>
+          <time datetime={publishDate.toDateString()}>
+            {formatDate(publishDate)}
+          </time>
+        </div>
+      </div>
+    </div>
+  </a>
+</li>

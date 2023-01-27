@@ -1,10 +1,10 @@
 ---
-import { Picture } from "@astrojs/image/components";
-import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
-import SectionHead from "../../components/SectionHead.astro";
-import { formatDate } from "../../utils/helpers";
-const posts = (
+import Layout from "../../layouts/Layout.astro";
+import SectionHead from "../../components/layout/SectionHead.astro";
+import BlogList from "../../components/blogs/BlogList.astro";
+
+const blogs = (
   await getCollection("blog", ({ data }) => {
     return data.isDraft !== true;
   })
@@ -23,48 +23,5 @@ let title = "All Blogs";
     description="Read about my opinions and experiences"
   />
 
-  <ul class="grid gap-16 max-w-4xl mx-auto">
-    {
-      posts.map((post, index) => {
-        const { category, title, author, excerpt, publishDate, image } =
-          post.data;
-        const slug = post.slug;
-
-        return (
-          <li>
-            <a href={`/blogs/${slug}`}>
-              <div class="grid md:grid-cols-2 gap-4 md:gap-8 items-center hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md hover:shadow-md">
-                <Picture
-                  src={image.src}
-                  alt={image.alt}
-                  widths={[200, 400, 800]}
-                  sizes="(max-width: 800px) 100vw, 800px"
-                  aspectRatio="16:9"
-                  loading={index === 0 ? "eager" : "lazy"}
-                  class="w-full rounded-xl aspect-video p-2"
-                  background={"gray"}
-                />
-                <div class="p-4">
-                  <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
-                    {category}
-                  </span>
-                  <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
-                    {title}
-                  </h2>
-                  <p>{excerpt}</p>
-                  <div class="flex gap-2 mt-3 text-gray-400">
-                    <span>{author}</span>
-                    <span>• </span>
-                    <time datetime={publishDate.toDateString()}>
-                      {formatDate(publishDate)}
-                    </time>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </li>
-        );
-      })
-    }
-  </ul>
+  <BlogList blogs={blogs} />
 </Layout>
