@@ -1,6 +1,29 @@
 ---
-import Social from "./Social.astro";
+import Social from "../Social.astro";
 import { Icon } from "astro-icon";
+
+const socials = [
+  {
+    platform: "twitter",
+    username: "@KenjiPhang",
+    icon: "mdi:twitter",
+  },
+  {
+    platform: "github",
+    username: "KenjiPcx",
+    icon: "mdi:github",
+  },
+  {
+    platform: "youtube",
+    username: "Kensomnia",
+    icon: "mdi:youtube",
+  },
+  {
+    platform: "linkedin",
+    username: "in/KenjiPhang",
+    icon: "mdi:linkedin",
+  },
+];
 ---
 
 <footer class="flex flex-col justify-between items-center my-5 md:flex-row">
@@ -8,21 +31,19 @@ import { Icon } from "astro-icon";
     Kenji Phang | {new Date().getFullYear()} ©
   </div>
   <div class="w-fit mt-1 md:mt-0">
-    <Social platform="twitter" username="@KenjiPhang">
-      <Icon name="mdi:twitter" size="32" />
-    </Social>
-
-    <Social platform="github" username="KenjiPcx">
-      <Icon name="mdi:github" size="32" />
-    </Social>
-
-    <Social platform="youtube" username="Kensomnia">
-      <Icon name="mdi:youtube" size="32" />
-    </Social>
-
-    <Social platform="linkedin" username="in/KenjiPhang">
-      <Icon name="mdi:linkedin" size="32" />
-    </Social>
+    {
+      socials.map((social) => {
+        return (
+          <Social
+            platform={social.platform}
+            username={social.username}
+            class="ml-2"
+          >
+            <Icon name={social.icon} size="32" />
+          </Social>
+        );
+      })
+    }
   </div>
 </footer>
 

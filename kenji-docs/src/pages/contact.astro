@@ -1,12 +1,91 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import SectionHead from "../components/layout/SectionHead.astro";
+import Social from "../components/Social.astro";
+import { Icon } from "astro-icon";
+import { Picture } from "@astrojs/image/components";
+import contactMe from "../../public/assets/contact-me.png";
+
 let title = "Contact";
+let email = "kenji.phang@outlook.com";
+const socials = [
+  {
+    platform: "twitter",
+    username: "@KenjiPhang",
+    icon: "mdi:twitter",
+  },
+  {
+    platform: "github",
+    username: "KenjiPcx",
+    icon: "mdi:github",
+  },
+  {
+    platform: "youtube",
+    username: "Kensomnia",
+    icon: "mdi:youtube",
+  },
+  {
+    platform: "linkedin",
+    username: "in/KenjiPhang",
+    icon: "mdi:linkedin",
+  },
+];
 ---
 
 <Layout title={title}>
-  <SectionHead
-    title="Work with me!"
-    description="Got an idea you want to implement? Reach out to me through emails or my socials"
-  />
+  <SectionHead title="Contact Me" description="Let's go out for coffee ☕" />
+  <div class="grid w-1/2 lg:grid-cols-2 mx-auto lg:w-full gap-4 md:gap-12">
+    <div class="flex flex-col gap-2 p-4">
+      <h1 class="text-2xl font-semibold">Got an idea you want to implement?</h1>
+      <p class="text-lg text-slate-600 dark:text-slate-300">
+        I'm always looking for new opportunities and collaborations in the
+        software engineering field. Whether you're a company looking for a
+        developer, or an individual with an interesting project, feel free to
+        reach out to me.
+      </p>
+      <div class="text-lg flex flex-col text-slate-800 dark:text-slate-500">
+        <p>
+          <span><Icon name="mdi:map-marker" width={24} /></span>
+          United Kingdom
+        </p>
+        <a href={`mailto:${email}?subject=Let's get some coffee!`}>
+          <p>
+            <span><Icon name="ic:email" width={24} /></span>
+            {email}
+          </p>
+        </a>
+      </div>
+      <div class="text-lg mt-3">
+        <h1 class="font-semibold">Follow me on my socials</h1>
+        <div class="text-slate-800 dark:text-slate-500 flex flex-col">
+          {
+            socials.map((social) => {
+              return (
+                <Social platform={social.platform} username={social.username}>
+                  <Icon name={social.icon} width={24} />
+                  {` ${social.username}`}
+                </Social>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+    <div class="hidden lg:block">
+      <Picture
+        src={contactMe}
+        alt="Kenji Phang"
+        widths={[200, 400, 800]}
+        sizes="(max-width: 800px) 100vw, 800px"
+        loading="eager"
+        class="w-full rounded-xl"
+      />
+    </div>
+  </div>
 </Layout>
+
+<style>
+  svg {
+    display: inline-block;
+  }
+</style>

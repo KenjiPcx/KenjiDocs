@@ -1,0 +1,13 @@
+---
+interface Props {
+  platform: string;
+  username: string;
+  class?: string;
+}
+
+const { platform, username, class: className } = Astro.props;
+---
+
+<a href={`https://www.${platform}.com/${username}`} class:list={[className]}>
+  <slot />
+</a>
