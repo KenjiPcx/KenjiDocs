@@ -3,9 +3,10 @@ interface Props {
   title: string;
   subtitle: string;
   last?: boolean;
+  spoiler?: boolean;
 }
 
-const { title, subtitle, last } = Astro.props;
+const { title, subtitle, last, spoiler } = Astro.props;
 ---
 
 <div class="flex">
@@ -17,7 +18,16 @@ const { title, subtitle, last } = Astro.props;
       }`}></span>
   </div>
   <div class="bd-grid px-5">
-    <h3 class="font-semibold mb-1">{title}</h3>
+    <h3
+      id="demo"
+      class={`font-semibold mb-1 ${
+        spoiler
+          ? "text-transparent hover:text-black dark:hover:text-white rounded-xl"
+          : ""
+      }`}
+    >
+      {title}
+    </h3>
     <span class="font-light text-sm">{subtitle}</span>
     <div class="prose dark:prose-invert">
       <ul>
