@@ -18,11 +18,18 @@ import image from "@astrojs/image";
 import imageSharp from "@astrojs/image";
 
 // https://astro.build/config
+import sitemap from "@astrojs/sitemap";
+
+// https://astro.build/config
 export default defineConfig({
+  site: "https://kenjiphang.vercel.app",
   integrations: [
     tailwind(),
     mdx(),
     solidJs(),
-    image({ serviceEntryPoint: "@astrojs/image/sharp" }),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
+    sitemap(),
   ],
 });
