@@ -1,0 +1,14 @@
+---
+import Pill from "./Pill.astro";
+interface Props {
+  tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+<div
+  class="w-full mx-auto flex flex-row flex-wrap gap-3 justify-center items-center mb-16"
+>
+  {tags.map((tag) => <Pill tag={tag} />)}
+</div>
