@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import SectionHead from "../../components/layout/SectionHead.astro";
+import Pill from "../../components/Pill.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const allBlogs = await getCollection("blog");
+const allTags = [...new Set(allBlogs.map((blog) => blog.data.tags).flat())];
+
+const title = "All tags";
+const description = "Find the right blogs through the tags";
+---
+
+<Layout title={title} description={description}>
+  <SectionHead title={title} description={description} />
+  <div class="w-full mx-auto flex flex-row gap-3 justify-center items-center">
+    {allTags.map((tag) => <Pill tag={tag} />)}
+  </div>
+</Layout>

@@ -34,7 +34,13 @@ const { Content } = await post.render();
     <div class="text-gray-400">
       <span>{post.data.author} • {formatDate(post.data.publishDate)}</span>
       <div class="w-full md:w-auto flex flex-wrap gap-3">
-        {post.data.tags.map((tag) => <span class="text-gray-500">#{tag}</span>)}
+        {
+          post.data.tags.map((tag) => (
+            <a href={`/tags/${tag}`} class="text-gray-500 no-underline">
+              #{tag}
+            </a>
+          ))
+        }
       </div>
     </div>
     <Content />

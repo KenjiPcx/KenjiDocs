@@ -2,6 +2,8 @@
 import { getCollection, CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import SectionHead from "../../components/layout/SectionHead.astro";
+import BlogList from "../../components/blogs/BlogList.astro";
+import Pill from "../../components/Pill.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.isDraft);
@@ -22,10 +24,15 @@ interface Props {
 
 const { posts } = Astro.props as Props;
 const { tag } = Astro.params as { tag: string };
+const allTags = [...new Set(posts.map((blog) => blog.data.tags).flat())];
 ---
 
 <Layout title={tag} description={`Kenji's blogs with the tag "${tag}""`}>
-  <SectionHead title={"Blogs"} description={`Blogs tagged with ${tag}`} />
-  <h1>About</h1>
-  <p>Learn more about Astro!</p>
+  <SectionHead title={"Blogs"} description={`Blogs tagged with #${tag}`} />
+  <div
+    class="w-full mx-auto flex flex-row gap-3 justify-center items-center mb-16"
+  >
+    {allTags.map((tag) => <Pill tag={tag} />)}
+  </div>
+  <BlogList blogs={posts} />
 </Layout>

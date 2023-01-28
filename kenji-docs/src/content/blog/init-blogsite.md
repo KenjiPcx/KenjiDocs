@@ -4,7 +4,7 @@ title: "Init Blogsite"
 excerpt: "I'm starting a blog, here is what you can expect"
 category: "Life Updates"
 author: Kenji Phang
-tags: ["post"]
+tags: ["Life Updates", "Major Milestone"]
 image: { src: "/assets/init-kenjidocs.png", alt: "Kenji + Docs = heart" }
 publishDate: "Jan 26, 2023"
 ---
@@ -13,7 +13,7 @@ publishDate: "Jan 26, 2023"
 
 A blog is something I've been wanting to start for a while now but never really had the time to work on it, I tried starting one 3 months ago but I got busy and that went nowhere 😱. But I recently started the habit of journalling since the start of the new year and I enjoy it, it helps me keep track of my life and gives me something to reflect on. So now I'm applying it to my coding journey, sharing my work publicly its own benefits as well.
 
-And now its life, say hello to KenjiDocs, my personal website!
+And now its life, say hello to **KenjiDocs**, my personal website!
 ![Kenji + Docs = heart](/assets/init-kenjidocs.png)
 
 ## What will I be blogging about?
@@ -38,3 +38,7 @@ I'll basically just be writing a blogpost whenever I finish a project to share a
 ### My thoughts on technology
 
 I like keeping up with tech and I want to share my thoughts and reaction to them. I talk about Microsoft technologies, blockchain, AI, cloud 😄
+
+## Follow if interested
+
+I like talking about these things, feel free to follow me on my social media if you want to hear more of these topics more frequently. Other than that, enjoy the blog!

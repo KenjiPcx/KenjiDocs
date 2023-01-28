@@ -3,16 +3,19 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import SectionHead from "../../components/layout/SectionHead.astro";
 import BlogList from "../../components/blogs/BlogList.astro";
+import Pill from "../../components/Pill.astro";
 
 const blogs = (
   await getCollection("blog", ({ data }) => {
-    return data.isDraft !== true;
+    return !data.isDraft;
   })
 ).sort(
   (a, b) =>
     new Date(b.data.publishDate).valueOf() -
     new Date(a.data.publishDate).valueOf()
 );
+
+const allTags = [...new Set(blogs.map((blog) => blog.data.tags).flat())];
 
 const title = "Kenji's Blogs";
 const description = "Read about Kenji's opinions and experiences";
@@ -23,6 +26,10 @@ const description = "Read about Kenji's opinions and experiences";
     title="Blogs"
     description="Read about my opinions and experiences"
   />
-
+  <div
+    class="w-full mx-auto flex flex-row gap-3 justify-center items-center mb-16"
+  >
+    {allTags.map((tag) => <Pill tag={tag} />)}
+  </div>
   <BlogList blogs={blogs} />
 </Layout>
