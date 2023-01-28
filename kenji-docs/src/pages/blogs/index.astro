@@ -14,10 +14,11 @@ const blogs = (
     new Date(a.data.publishDate).valueOf()
 );
 
-let title = "All Blogs";
+const title = "Kenji's Blogs";
+const description = "Read about Kenji's opinions and experiences";
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description}>
   <SectionHead
     title="Blogs"
     description="Read about my opinions and experiences"

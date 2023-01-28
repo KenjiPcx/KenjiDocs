@@ -24,7 +24,7 @@ const { posts } = Astro.props as Props;
 const { tag } = Astro.params as { tag: string };
 ---
 
-<Layout title={tag}>
+<Layout title={tag} description={`Kenji's blogs with the tag "${tag}""`}>
   <SectionHead title={"Blogs"} description={`Blogs tagged with ${tag}`} />
   <h1>About</h1>
   <p>Learn more about Astro!</p>
