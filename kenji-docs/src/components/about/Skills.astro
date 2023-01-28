@@ -1,0 +1,16 @@
+---
+import { Picture } from "@astrojs/image/components";
+import comingSoon from "../../../public/assets/coming-soon.gif";
+---
+
+<div id="skills">
+  <h2 class="text-2xl w-full font-bold mb-2">Skills</h2>
+  <Picture
+    src={comingSoon}
+    widths={[200, 400]}
+    sizes="(max-width: 400px) 100vw, 400px"
+    formats={["webp", "avif", "jpeg"]}
+    alt="Coming soon gif"
+    class={"mx-auto"}
+  />
+</div>

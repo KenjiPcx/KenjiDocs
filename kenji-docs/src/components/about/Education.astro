@@ -1,0 +1,34 @@
+---
+import TimelineItem from "../TimelineItem.astro";
+import Highlight from "../Highlight.astro";
+---
+
+<div id="education">
+  <h2 class="text-2xl w-full font-bold mb-2">Education</h2>
+  <TimelineItem
+    title="Computer Science @ University of Manchester"
+    subtitle="Sept 2020 - June 2024"
+  >
+    <li>Averaged results: 1st Class (84%)</li>
+    <li>
+      <Highlight>Notable modules:</Highlight> Machine Learning, Intro to AI, distributed
+      systems, software engineering, database systems, visual computing
+    </li>
+  </TimelineItem>
+  <TimelineItem
+    title="Encode X Solana Bootcamper @ Encode Club"
+    subtitle="Oct 2022 - Dec 2022"
+  >
+    <li>One out of 50 chosen to participate in the Solana Bootcamp taught by Extrophy.io</li>
+    <li><Highlight>Skills involved:</Highlight> Solana, Rust, Anchor, React</li>
+  </TimelineItem>
+  <TimelineItem
+    title="Computer Science @ Methodist College Kuala Lumpur"
+    subtitle="Jan 2019 - June 2020"
+    last
+  >
+    <li>100% Scholarship Scholar</li>
+    <li>Did A levels in Computer Science, Further Maths, Maths and Physics</li>
+    <li><Highlight>Results:</Highlight> 4A*</li>
+  </TimelineItem>
+</div>

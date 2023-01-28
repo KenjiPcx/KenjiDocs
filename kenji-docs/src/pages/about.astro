@@ -1,12 +1,32 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import SectionHead from "../components/layout/SectionHead.astro";
+import ElevatorPitch from "../components/about/ElevatorPitch.astro";
+import WorkExperience from "../components/about/WorkExperience.astro";
+import Extracurriculars from "../components/about/Extracurriculars.astro";
+import Education from "../components/about/Education.astro";
+import Skills from "../components/about/Skills.astro";
+
 let title = "About";
 ---
 
 <Layout title={title}>
   <SectionHead
     title="About Me"
-    description="A little bit about who am I and what I do"
+    description="A detailed page about who I am and what I do"
   />
+  <div class="w-2/3 flex flex-col gap-8 p-4">
+    <ElevatorPitch />
+    <WorkExperience />
+    <Extracurriculars />
+    <Education />
+    <Skills />
+  </div>
+  <div class="text-center mt-16">
+    <a
+      href="https://1drv.ms/b/s!Ao1Ujktn2vgOc0Iv5m1mAabBLQY?e=we8nuL"
+      class="bg-gray-100 dark:bg-gray-800 px-5 py-3 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+      >View my CV</a
+    >
+  </div>
 </Layout>

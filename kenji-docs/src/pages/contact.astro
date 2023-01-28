@@ -34,7 +34,7 @@ const socials = [
 
 <Layout title={title}>
   <SectionHead title="Contact Me" description="Let's go out for coffee ☕" />
-  <div class="grid w-1/2 lg:grid-cols-2 mx-auto lg:w-full gap-4 md:gap-12">
+  <div class="grid w-3/4 md:grid-cols-2 mx-auto md:w-full gap-4 md:gap-12">
     <div class="flex flex-col gap-2 p-4">
       <h1 class="text-2xl font-semibold">Got an idea you want to implement?</h1>
       <p class="text-lg text-slate-600 dark:text-slate-300">
@@ -56,7 +56,7 @@ const socials = [
         </a>
       </div>
       <div class="text-lg mt-3">
-        <h1 class="font-semibold">Follow me on my socials</h1>
+        <h1 class="text-2xl font-semibold">Follow me on my socials</h1>
         <div class="text-slate-800 dark:text-slate-500 flex flex-col">
           {
             socials.map((social) => {
@@ -71,7 +71,7 @@ const socials = [
         </div>
       </div>
     </div>
-    <div class="hidden lg:block">
+    <div class="hidden md:block">
       <Picture
         src={contactMe}
         alt="Kenji Phang"
