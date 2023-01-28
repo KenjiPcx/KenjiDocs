@@ -6,9 +6,6 @@ import { Icon } from "astro-icon";
 import { Picture } from "@astrojs/image/components";
 import contactMe from "../../public/assets/contact-me.png";
 
-let title = "Contact Kenji";
-let description = "Reach out to Kenji for your next big idea!";
-
 let email = "kenji.phang@outlook.com";
 const socials = [
   {
@@ -32,6 +29,9 @@ const socials = [
     icon: "mdi:linkedin",
   },
 ];
+
+const title = "Contact Kenji";
+const description = "Reach out to Kenji for your next big idea!";
 ---
 
 <Layout title={title} description={description}>
