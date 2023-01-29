@@ -11,14 +11,15 @@ const colors = [
 
 interface Props {
   tag: string;
+  class?: string;
 }
-const { tag } = Astro.props;
+const { tag, class: className = "" } = Astro.props;
 
 const color = colors[Math.floor(Math.random() * colors.length)];
 ---
 
 <a
-  class={`px-4 py-1 rounded-3xl outline ${color} font-bold hover:scale-[1.025] ease-in-out duration-300`}
+  class={`px-4 py-1 rounded-3xl outline ${color} font-bold hover:scale-[1.025] ease-in-out duration-300 ${className}`}
   href={`/tags/${tag}`}
 >
   {tag}
