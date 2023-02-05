@@ -17,12 +17,12 @@ const { title, subtitle, last, spoiler } = Astro.props;
         last ? "hidden" : ""
       }`}></span>
   </div>
-  <div class="bd-grid px-5">
+  <div class="w-full px-5">
     <h3
-      id="demo"
-      class={`font-semibold mb-1 ${
+      id={`job-title${spoiler ? "-with-spoiler" : ""}`}
+      class={`font-semibold mb-1 w-full ${
         spoiler
-          ? "text-transparent hover:text-black dark:hover:text-white rounded-xl"
+          ? "text-transparent hover:text-black dark:hover:text-white rounded-xl duration-[3000ms]"
           : ""
       }`}
     >
@@ -36,3 +36,60 @@ const { title, subtitle, last, spoiler } = Astro.props;
     </div>
   </div>
 </div>
+
+<script>
+  import type { start } from "repl";
+
+  const spoiler = document.querySelector("#job-title-with-spoiler");
+  if (spoiler) {
+    const title = (spoiler.textContent as string).trim();
+    const template = title.replace(/[^\s@]/g, "*");
+    const startingText =
+      "Hover on me until I'm done! Let's see if you can crack my secret 😋! Pay close attention ⚠️ to the text, its a secret 🤫 so its not meant to be easy to find out! 😈 I guess this is a good way to showcase my JavaScript skills 👨‍💻 as well eh? 😏 Ready? Go! 😁";
+    const endingText = "Game over! 😵 Did you managed to find out? 😁";
+
+    let startingTextIndex = 1;
+    let interval: NodeJS.Timeout;
+    spoiler.textContent = startingText.substring(0, startingTextIndex);
+
+    const frames: string[] = [];
+    for (let i = 0; i < title.length; i++) {
+      if (title[i] != " ") {
+        frames.push(template.slice(0, i) + title[i] + template.slice(i + 1));
+      }
+    }
+
+    const transitionToGame = () => {
+      setTimeout(() => {
+        spoiler.textContent = template;
+        interval = setInterval(() => {
+          let index = Math.floor(Math.random() * frames.length);
+          spoiler.textContent = frames[index];
+        }, 250);
+      }, 1000);
+    };
+
+    spoiler.addEventListener("mouseover", () => {
+      spoiler.textContent = startingText.substring(0, startingTextIndex);
+      interval = setInterval(() => {
+        spoiler.textContent += startingText[startingTextIndex];
+        startingTextIndex += 1;
+        if (startingTextIndex >= startingText.length) {
+          clearInterval(interval);
+          transitionToGame();
+        }
+      }, 100);
+    });
+
+    spoiler.addEventListener("mouseout", () => {
+      if (interval) {
+        clearInterval(interval);
+        startingTextIndex = 1;
+        spoiler.textContent = endingText;
+        setTimeout(() => {
+          spoiler.textContent = startingText.substring(0, startingTextIndex);
+        }, 3000);
+      }
+    });
+  }
+</script>
