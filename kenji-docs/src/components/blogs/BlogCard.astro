@@ -6,16 +6,17 @@ import { formatDate } from "../../utils/helpers";
 interface Props {
   blog: CollectionEntry<"blog">;
   lazyLoad: boolean;
+  class?: string;
 }
 
-const { blog, lazyLoad }: Props = Astro.props;
+const { blog, lazyLoad, class: className }: Props = Astro.props;
 const { title, author, excerpt, image, category, publishDate } = blog.data;
 const slug = blog.slug;
 ---
 
 <li>
   <div
-    class="grid md:grid-cols-2 gap-4 md:gap-x-10 md:gap-y-8 p-2 items-center rounded-md"
+    class:list={["grid p-2 items-center rounded-md", className]}
   >
     <div class="overflow-hidden rounded-xl">
       <a href={`/blogs/${slug}`}>

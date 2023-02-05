@@ -27,5 +27,9 @@ const description = "Read about Kenji's opinions and experiences";
     description="Read about my opinions and experiences"
   />
   <PillBar tags={allTags} />
-  <BlogList blogs={blogs} />
+  <BlogList
+    blogs={blogs}
+    class="gap-16"
+    cardsClass="max-w-4xl md:grid-cols-2 gap-4 md:gap-x-10 md:gap-y-8"
+  />
 </Layout>

@@ -31,5 +31,9 @@ const allTags = [...new Set(posts.map((blog) => blog.data.tags).flat())];
 <Layout title={tag} description={`Kenji's blogs with the tag "${tag}""`}>
   <SectionHead title={"Blogs"} description={`Blogs tagged with #${tag}`} />
   <PillBar tags={allTags} />
-  <BlogList blogs={posts} />
+  <BlogList
+    blogs={posts}
+    class="gap-16"
+    cardsClass={"max-w-4xl md:grid-cols-2 gap-4 md:gap-x-10 md:gap-y-8"}
+  />
 </Layout>

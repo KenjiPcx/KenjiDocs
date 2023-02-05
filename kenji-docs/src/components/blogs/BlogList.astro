@@ -4,15 +4,17 @@ import BlogCard from "./BlogCard.astro";
 
 interface Props {
   blogs: CollectionEntry<"blog">[];
+  class?: string;
+  cardsClass?: string;
 }
 
-const { blogs }: Props = Astro.props;
+const { blogs, class: className, cardsClass }: Props = Astro.props;
 ---
 
-<ul class="grid gap-16 max-w-4xl mx-auto">
+<ul class:list={["grid mx-auto", className]}>
   {
     blogs.map((blog, index) => {
-      return <BlogCard blog={blog} lazyLoad={index !== 0} />;
+      return <BlogCard blog={blog} lazyLoad={index !== 0} class={cardsClass} />;
     })
   }
 </ul>

@@ -1,6 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import { getCollection, CollectionEntry } from "astro:content";
+import BlogList from "../components/blogs/BlogList.astro";
+
+const blogs = (
+  await getCollection("blog", ({ data }) => {
+    return !data.isDraft;
+  })
+)
+  .sort(
+    (a, b) =>
+      new Date(b.data.publishDate).valueOf() -
+      new Date(a.data.publishDate).valueOf()
+  )
+  .slice(0, 3);
 
 const title = "KenjiDocs";
 const description = "Kenji's tech/life documentation";
@@ -8,4 +22,15 @@ const description = "Kenji's tech/life documentation";
 
 <Layout title={title} description={description}>
   <Hero />
+  <div class="mt-16">
+    <h1
+      class="mx-auto text-center w-fit md:ml-8 md:-mb-1 pb-5 px-6 text-2xl font-bold bg-slate-100 dark:bg-slate-800 rounded-tr-xl rounded-tl-xl p-3"
+    >
+      Latest Blogs
+    </h1>
+    <BlogList
+      blogs={blogs}
+      class="md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-2 bg-slate-100 dark:bg-slate-800 rounded-xl px-4 py-8"
+    />
+  </div>
 </Layout>
