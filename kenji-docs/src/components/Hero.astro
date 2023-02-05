@@ -1,6 +1,7 @@
 ---
 import { Image } from "@astrojs/image/components";
 import heroImage from "../../public/assets/hero.jpeg";
+import Highlight from "./about/Highlight.astro";
 ---
 
 <div class="mx-5 my-5 md:flex md:flex-row md:justify-between items-center">
@@ -24,10 +25,20 @@ import heroImage from "../../public/assets/hero.jpeg";
       Software Engineer on the grind
     </h3>
     <p class="mt-5 text-xl lg:text-2xl w-full">
-      Welcome to my humble docs site, I am documenting my tech journey here to
-      reflect on in the future. Feel free to have a look at what I am working on
-      through my projects and my blogs. I work with emerging tech, blockchain,
-      cloud, bots and AI.
+      Welcome to my <Highlight>docs site</Highlight>, <Highlight>
+        KenjiDocs
+      </Highlight>! I am <Highlight>documenting my tech journey</Highlight> here
+      to <Highlight>reflect on</Highlight> in the future. Feel free to look through
+      my <a href="/projects"><Highlight>projects</Highlight></a> and my
+      <a href="/blogs"><Highlight>blogs</Highlight></a>. I work with<Highlight>
+        emerging tech
+      </Highlight>, anything from <Highlight>mixed reality</Highlight>,
+      <Highlight>blockchain</Highlight>,
+      <Highlight>cloud</Highlight>, <Highlight>bots</Highlight> and <Highlight>
+        AI
+      </Highlight>. Maybe some <Highlight>fitness</Highlight> and <Highlight>
+        guitar
+      </Highlight> too!
     </p>
   </div>
 
