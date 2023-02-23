@@ -1,0 +1,189 @@
+---
+isDraft: false
+title: "My Failure 😔 with Imagine Cup 2023"
+excerpt: "My experience and takeaways with failing the Imagine Cup"
+category: "Dev Updates"
+author: Kenji Phang
+tags: ["Hackathons", "Failure"]
+image:
+  {
+    src: "/assets/failed-imagine-cup/imagine-cup-failure.png",
+    alt: "Imagine Cup Failure thumbnail",
+  }
+publishDate: "Feb 20, 2023"
+---
+
+import ImageBox from "../../components/blogs/ImageBox";
+
+## Excerpt
+
+The following is my experience in participating in the Microsoft Imagine Cup 2023.
+I will be as transparent as possible with my thoughts and the problems I faced while in the competition. And hopefully give you, the reader a realistic expectation of the Imagine Cup.
+
+## Prologue
+
+The Imagine Cup is Microsoft's annual flagship event for students to come together and innovate on problems in the world and build solutions to those problems using the power of the cloud through Microsoft Azure.
+
+<ImageBox
+  src={`/assets/failed-imagine-cup/imagine-cup-logo.jpg`}
+  alt="Imagine Cup Logo"
+/>
+
+I first heard of it while doing my A Levels in college and have been wanting to join this competition for a few years now, but every year something always came up which made it inconvinient to join. This year though, I promised myself I will participate no matter what and so I did.
+
+## Epic Challenge
+
+The Epic Challenge was an optional challenge that teams could participate in to propose ideas before coding the actual solution to get feedback on the idea early on.
+
+To honor the full spirit of the Imagine Cup, I took part in this challenge as well with an idea to **"Create Intelligent Bots to help practice coding interviews"**, which was inspired from my difficulties learning how to interview during the prior job applications season.
+
+<ImageBox
+  src={`/assets/failed-imagine-cup/interview-chatbot.jpeg`}
+  alt="Graphic about Chatbot"
+  caption="Imagine practicing interviews like this"
+/>
+
+I filmed a pitch and submitted it and 2 weeks later, the idea of course was **not selected**. I got to peek at some ideas that got selected and it was here where I realized what the competition at the Imagine Cup is really like, the people here are working on very niche problems that I never even knew existed before.
+
+### Realization about these competitions
+
+Most solutions provide a very specific need for a specific community that would change their lives, my idea was more of a **"good to have, but not really necessary"** kind of solution. So for the next round of Imagine Cup, I tried looking for some other idea that fit this criteria.
+
+## UK National Finals
+
+For the UK Imagine Cup, the first round was straight up just finals, probably because there were not many participations, but this was a very good opportunity to be considered a UK imagine cup finalist just by participating!
+
+Until... The struggles appeared...
+
+### Struggle 1: Brainstorming good ideas
+
+<ImageBox src={`/assets/failed-imagine-cup/brainstorm.webp`} alt="Brainstorm" />
+
+Brainstorming is hard, the bar for ideas at the competition is just so high. If it was easy, everyone would've been millionaires by now. Any ideas that I thought of would have already been implemented or it would be too hard to implement or it would be just plain bad, I went back to the drawing board numerous times for days on end.
+
+Eventually, I realized that I am just so out of touch with world problems so I started researching up on as many world problems as I could, reading articles, watching videos and listening to audiobooks about them whenever I had time. Unfortunately, time was ticking, so I had no choice but to move on with my random abstract ideas, I proceded to build a team and hoped that we would figure something out from there.
+
+### Struggle 2: Building a team with friends
+
+A strong team is not just one where everyone is working towards that same common goal but more importantly, they should also share same desire to achieve that goal. Each member should want to win as much as the others, and a bit of friendly rivalry can even result in promoting healthy competition and motivating each other to perform at their best.
+
+<ImageBox
+  src={`/assets/failed-imagine-cup/teambuilding.jpg`}
+  alt="Teambuilding"
+/>
+
+In my case, I was building a team with my friends and we all had different motivations and priorities, I was hoping that me and my friends would have that legendary brainstorming and whiteboarding session to fine tune our idea and come up with the winning idea, whereas my friends were looking for an opportunity to gain experience and build anything that comes their way.
+
+Me and my friends all had different expectations from participating in this hackathon which ended up in the collapse of the team.
+
+### Struggle 3: Building solo with no plan
+
+Alright, at this stage, I decided to further planning was just a waste of time, I just wanted to build something, submit it and be recognized as a finalist for the UK competition.
+
+I proceeded on building a solution using OpenAI's GPT API (as it is the hype) to help the elderly detect scams because apparently
+
+> Seniors lost more than $3 billion in 2020 to financial scams
+
+The idea was simple enough, it would allow people to
+
+- record phone calls using **Azure's Speech to Text Service**
+- ask **OpenAI's GPT API**
+  - if it is a scam
+  - if it is, what parts are suspicious
+  - advice on what to do with the call
+- save history of detected phone call using **Azure CosmosDB**
+
+### Struggle 4: Figuring out tech stack and architecture
+
+I had the idea and the knowledge of what these components do, but I had never used any of them besides **CosmosDB** before, learning is an obvious part of the hackathon which I'm fine with doing, but I have this really bad habit of challenging myself too hard, I decided to build this thing with a tech stack that I have never worked with before.
+
+React was boring, so I decided to use **Solid.js** for my frontend, it looked like a good time to finally learn about **Azure Functions** as well so I included that into my stack. And so, I ended up with like 3-4 new technologies to learn, but it wasn't that bad of an experience.
+
+<ImageBox
+  src={`/assets/failed-imagine-cup/architecture.png`}
+  alt="architecture diagram"
+  caption="Designing the architecture"
+/>
+
+It was a really interesting experience figuring out how to glue together OpenAI api's response to something I can use in the frontend, I ended up learning about prompt engineering and doing stuff like this to get a response.
+
+```typescript
+export const generateScamDetectionPrompt = (messages: string[]) => {
+  return `Tell me if this message contains suspicious content. 
+  Extract the scams and shady contents from this dialog, explain why they are, 
+  then suggest what a user should do next like how to verify the caller or just end the call etc. 
+  Return the result directly in json with this type 
+  { 
+    "isScam": boolean; 
+    "warnings": { 
+      "text": string; #
+      "reason": string; 
+      }[]; 
+    "advice": string; 
+  }
+  
+  The dialog is as follows: "${messages.join(" ")}"
+`;
+};
+```
+
+### Struggle 5: Shooting myself in the foot
+
+Fast forward a few days and a ton of bugfixes later, I had finished coding up the prototype with 10 days left to spare, all that was left to do was find out how to deploy it, submit it and call it a day.
+
+<ImageBox
+  src={`/assets/failed-imagine-cup/app home.png`}
+  alt="app home page"
+  caption="A little magic with Hope UI"
+  class="w-1/2"
+/>
+
+But my stupid habit came to bite me back because I wanted some more challenge, I
+ended up changing the idea to include more productive features, like
+
+- detecting tasks
+- detecting meetings
+- detecting contents of interests
+- custom questioning for the contents of the conversation
+
+So I went back to coding.
+
+### Struggle 5: Failing to submit the project on time
+
+Fast forward through a ton of all nighters. 3 hours before the competition ended, I finished adding the new features, polished the app and was finally satisfied with my work, which can be found here on my GitHub repo, [Chatnalysis](https://github.com/KenjiPcx/Imagine-Cup-2023). I still had to deploy the project, create powerpoint slides and record a video in order to submit, I decided to give it one final push and did all of that.
+
+<ImageBox
+  src={`/assets/failed-imagine-cup/parkinson-law.jpg`}
+  alt="app home page"
+  caption="Me during the final day"
+/>
+
+And finally, 5 minutes before the submission, I had everything ready. When I tried submitting my project, I realized that I needed to submit my entire code to the hackathon, but I forgot to remove my secrets and updated my readme to include the instructions on how to run the project locally, I added them as fast as I can. I was so close, but I failed to submit my project on time, just by **1 minute**.
+
+I did message the hackathon coordinators, but I have not gotten a reply, so I will just live on with this life lesson.
+
+## What I've learnt from this experience
+
+Overall, not everything is bad, even though I did not submit anything ~and fail to get the title of **"UK National Finalist"**~, I did learn a lot from this experience.
+
+I learned about
+
+- frontend with Solid.js and HopeUI
+- cloud technologies like Azure Functions, CosmosDB, Speech to Text Service and Azure Static Web Apps
+- openAI's GPT API and prompt engineering
+- problems in the world
+
+## Key takeaways for the future
+
+1. Prepare ideas beforehand, talk to professors, experts, put yourself in situations to get ideas
+2. Find like minded teammates, sometimes its best not to work with friends
+3. Make use of the hackathon's resources, the Imagine Cup Discord Server was a great way to find teammates
+4. Be clear of your expectation from the very start, make sure everyone is on the same page
+5. Stick to an idea, don't change it too much
+6. Factor in time for submitting the project, finish at least one day before submission
+
+## Conclusion
+
+The Imagine Cup is certainly not an easy challenge to join, but taking part in it is worth it. Even in failure, I managed to learn a lot of different things, being put in an environment such as the Imagine Cup gets you thinking about problems, how to fix them and how to make the world a better place. 
+
+I've learnt a lot from this experience and I'm glad that I took part in it. I will definitely take part in the Imagine Cup again in the future, hopefully using all the advice I've given myself today.
