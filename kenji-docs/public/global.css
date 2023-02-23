@@ -1,0 +1,4 @@
+.astro-code {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+}
