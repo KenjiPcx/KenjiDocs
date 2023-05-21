@@ -18,7 +18,7 @@
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/solid-js": "^2.0.0",
     "@astrojs/tailwind": "^3.0.0",
-    "astro": "^2.0.1",
+    "astro": "^2.5.1",
     "astro-icon": "^0.8.0",
     "sharp": "^0.31.3",
     "solid-js": "^1.4.3",
