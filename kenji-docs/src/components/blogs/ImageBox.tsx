@@ -10,7 +10,7 @@ interface ImageBoxProps {
 export default function ImageBox(props: ImageBoxProps) {
   return (
     <CaptionBox caption={props.caption}>
-      <img class={`mx-auto ${props.class}`} src={props.src} alt={props.alt} />
+      <img class={`mx-auto w-full ${props.class}`} src={props.src} alt={props.alt} />
     </CaptionBox>
   );
 }

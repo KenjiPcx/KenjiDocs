@@ -1,0 +1,180 @@
+---
+isDraft: false
+title: "🧠💖 Youth Well Tech Program"
+excerpt: "My experiences taking part in the youth well tech program"
+category: "Life Updates"
+author: Kenji Phang
+tags: ["Microsoft Learn Student Ambassador", "Mental Health & Wellbeing"]
+image:
+  {
+    src: "/assets/youth-well-tech/thumbnail.png",
+    alt: "A thumbnail with a brain holding a heart with the caption youth well tech",
+  }
+publishDate: "May 21, 2023"
+---
+
+import ImageBox from "../../components/blogs/ImageBox";
+import CaptionBox from "../../components/blogs/CaptionBox";
+import { YouTube } from "@astro-community/astro-embed-youtube";
+
+## So, what's the news?
+
+Over the past 8 weeks, I had an insightful opportunity to take part in the Youth
+Well Tech program. In this blogpost, I will be sharing everything I've learned
+and done throughout taking part in the program.
+
+## What is Youth Well Tech?
+
+The Youth Well Tech program is a program where student ambassadors work together with researchers from Microsoft Research to learn and design solutions targeted towards solving the mental health and wellbeing issues among youths. It is a collaboration between the Microsoft Learn Student Ambassadors with Microsoft Research, they were only accepting a small number of ambassadors and I was lucky to be selected among the applicants.
+
+<ImageBox
+  src={`/assets/youth-well-tech/logo-with-people.png`}
+  alt="me talking about web assembly"
+  caption="Youth Well Tech Program Logo"
+/>
+
+This was a pilot program, it was something new that they were trying out, the researchers realized that instead of them trying to come up with solutions for youths, they should work together with youths to come up with solutions for youths.
+
+The official objectives for the program are:
+
+- Co-design for youth with youth
+- Empower youth with human-centered design skills
+- Empower youth to contribute to voice their ideas
+- Develop a pipeline and process for ongoing partnership with youth to address youth mental health and well-being through technology
+
+<ImageBox
+  src={`https://datascience.aero/wp-content/uploads/2020/10/07hyD9kmFRFMuJKVz..png`}
+  alt="Human centered design process"
+  caption="The human centered design process"
+/>
+
+### How it worked?
+
+We essentially did a design sprint split into 8 weeks, each week we would have a 2 hour session with the researchers and we would learn about a topic from the human centered design process, discuss and work through interactive design exercises and then finish with some additional homework.
+
+<ImageBox
+  src={`https://miro.medium.com/v2/1*epqcNSs9BLwjvLfW8tkMrg.jpeg`}
+  alt="Design sprint diagram"
+  caption="The design sprint process"
+/>
+
+Some of the sessions we did included:
+
+- Plotting affinity diagrams to find relationships
+- Storyboarding to visualize our ideas
+- Creating personas to understand our users
+- Prototyping our ideas through figma
+- Reviewing each others prototypes through usability testing
+
+Towards the end of the program, we were split into groups to produce an output (it could be anything from a blog, video, prototype, etc) that we could share with the community.
+
+## What we worked on?
+
+Towards the middle of the program, from all the prior discussions and diagrams, we decided on a background problem which was that something along the lines of
+
+> Youths these days are facing mental health issues because of an unhealthy usage of social media and technology, resulting in a lack of productivity. Both of these combined would lead to compounded loss of self esteem when comparing themselves with other people on social media, leading to a negative feedback loop.
+
+Yea, it sounds really confusing, but here is a diagram to help explain it better.
+
+<ImageBox
+  src={`/assets/youth-well-tech/diagram.png`}
+  alt="A diagram showing the problem"
+  caption="A diagram showing the problem. This is just for illustration purposes, the factors leading to mental health issues are more complex than this 🥲"
+/>
+
+## What I worked on?
+
+From very early on, I focused my efforts more on "**how gamification could be used to improve mental health and wellbeing**" (given my interest in gaming ~~and my 4000+ hours of Dota 2~~). I had been working on [gamification projects for productivity](https://github.com/KenjiPcx/Skill-Tree-PWA) prior to this, so it was just natural to do the same here.
+
+But yea, there was a lot of discussion and research that went into this, I'll just share some of the things I did.
+
+### Sketching and Storyboarding
+
+At this stage, I just let my imagination run wild, proposing random but futuristic ideas using generative AI, nostalgia and other random cognitive behavioral techniques.
+
+<ImageBox
+  src={`/assets/youth-well-tech/sketching.png`}
+  alt="A diagram showing the problem"
+  caption="A diagram showing the problem. This is just for illustration purposes, the factors leading to mental health issues are more complex than this 🥲"
+/>
+
+For example, I proposed building a gamified productivity system that could
+
+- Use generative AI to create personalized reminders
+- Use "nostalgic or motivational media" to invoke a soft reset on us
+- Talk to a LLMs trained with our personal data with one representing the dystopian self and one representing the utopian self, and then preventing ourselves from becoming the dystopian self
+- Having a picture frame that shows our future self using generative AI based on the productiveness we have done
+
+Even if they were not feasible, it was still fun to discuss them with the researchers and other ambassadors.
+
+### Prototyping
+
+I actually did 2 rounds of prototyping, I thought I could just make a random low fidelity prototype and code it up within the timeframe, my pride as a programmer was holding me back from using Figma 😤.
+
+<ImageBox
+  src={`/assets/youth-well-tech/prototype-1.png`}
+  alt="A diagram showing the problem"
+  caption="A figma prototype of a gamified productivity system powered by an AI assistant"
+/>
+
+But then when time was running out, I realized that I was wrong and proceeded to painstakingly redo my prototype with full details in Figma, and I've came to enjoy Figma 🙂, lesson learnt I guess 🤷‍♂️.
+
+<ImageBox
+  src={`/assets/youth-well-tech/prototype-2.png`}
+  alt="A diagram showing the problem"
+  caption="A figma prototype of a more feasible solution, a browser extension that gamifies our productivity based on our browsing habits"
+/>
+
+I also let my imagination run wild here and made a bunch of stuff I didn't need but oh well, that's just part of the designing process.
+
+<ImageBox
+  src={`https://udemy-certificate.s3.amazonaws.com/image/UC-237a587c-c341-4e83-9908-e8085468421b.jpg?v=1625619452000`}
+  alt="Figma certificate"
+  caption="Guess that figma course I took roughly 2 years ago finally paid off 🤷‍♂️"
+/>
+
+### The final output
+
+Finally, I redid my prototype in Powerpoint because for some reason I forgot that we could do presentations on Figma, but oh well, what's done is done. And I made a video based on the presentation that you can watch here 👇.
+
+<CaptionBox caption="My youth well tech experience">
+  <YouTube id="h_ZTMD_HzO8" />
+</CaptionBox>
+
+> PS: If you are interested in building a system like this, please feel free to reach out to me, we can make it work together! 💪🏼
+
+## What I learned?
+
+Well, I learned a bunch of stuff. First up is the human centered design and design sprint process, I am familiar with it now since I went through a full iteration of it myself.
+
+Next up is a bunch of psychology stuff, I had went a bit overboard and read a bunch of papers and watched a bunch of videos on psychology, CBT and productivity. We also had some psychology experts in the program that shared their knowledge with us, so that was really insightful.
+
+<ImageBox
+  src={`https://media.tenor.com/Yjx_r38x1aYAAAAC/mind-blown-explosion.gif`}
+  alt="Brain exploding gif"
+  caption="Too much knowledge, my brain is exploding 🤯"
+/>
+
+And lastly, I got a lot of insight about pursuing academia and research from speaking to the researchers, so that was cool!
+
+### What I enjoyed?
+
+I really enjoyed the opportunity to just ask any questions to the researchers and program coordinators, they tried their best to close the gap and were really open to teaching us, listening to our ideas and answering our questions. 
+
+This program was also a really great excuse for myself to read more about psychology and productivity, it was nice doing something other than just coding for once. 🧠
+
+I also enjoyed the discussions we had with the other ambassadors, it was really insightful to hear their perspectives on the problem.
+
+### What I didn't enjoy?
+
+I've got to be honest, I didn't enjoy some participants just coming to the program and not contributing anything. In fact, they didn't even leave any messages 😤😡. I get that this is a student program but I have no idea why they signed up to this program in the first place.
+
+## Why you should join the program in the future?
+
+Student ambassadors who are reading this, please do not pass up on this opportunity if you see it again in the future, especially if you want to dive more into research related topics. You get the opportunity to just talk to the researchers and ask them anything, and you also get to work with other like minded people.
+
+## Conclusion
+
+This was one of the most insightful programs I've taken part in and a really productive use of 8 weeks, I learned a lot, talked a lot and had a good time working with everyone. I'm really grateful for the opportunity to take part in this program and I hope that I can take part in more programs like this in the future.
+
+> Kenji Signing Out
