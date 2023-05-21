@@ -38,8 +38,6 @@ const { title, subtitle, last, spoiler } = Astro.props;
 </div>
 
 <script>
-  import type { start } from "repl";
-
   const spoiler = document.querySelector("#job-title-with-spoiler");
   if (spoiler) {
     const title = (spoiler.textContent as string).trim();
