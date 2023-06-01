@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 
-// https://astro.build/config
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
@@ -21,15 +20,12 @@ import imageSharp from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
+import preact from "@astrojs/preact";
+
+// https://astro.build/config
 export default defineConfig({
   site: "https://kenjiphang.vercel.app",
-  integrations: [
-    tailwind(),
-    mdx(),
-    solidJs(),
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
-    }),
-    sitemap(),
-  ],
+  integrations: [tailwind(), mdx(), solidJs(), image({
+    serviceEntryPoint: "@astrojs/image/sharp"
+  }), sitemap(), preact()]
 });
